@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "yuntu-mcp-server"
+version = "1.0.0"
+description = "云途知汇算力调度 MCP Server（可托管版本），功能对齐 Go 版 chat_completion / get_balance / list_models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+dependencies = [
+    "fastmcp>=2.0.4",
+    "cryptography>=42.0.0",
+    "PyMySQL>=1.1.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+yuntu-mcp-server = "yuntu_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yuntu_mcp"]
